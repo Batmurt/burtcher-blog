@@ -3,6 +3,7 @@ title: Chalice of the Dread King (Part 0)
 date: 2025-09-01 12:16
 categories: [Experiences,Game Design]
 tags: [.net, asp.net core, blazor, front end, experiential, game design, narrative, puzzles, webassembly, mystery, visual design, storytelling]
+image: https://strgdsysburtcher.blob.core.windows.net/burtchernet/images/cotdk-mainmenu.webp
 ---
 
 > ### About This Series
@@ -22,6 +23,9 @@ Perhaps you remember them too. In the floppy disk era, we definitely had some ga
 
 This sparked an idea: what if the website verification was more than it seemed? Not just a functional step at the end of a puzzle, but an intrinsic part of the story What if you had to combine the book and the online interface to figure out what was going on? Some of my favourite games have used print manuals to great and varied effect (TIS-1000, Keep Talking and Nobody Explodes) and I couldn't get the idea out of my head.
 
+![Desktop View](https://strgdsysburtcher.blob.core.windows.net/burtchernet/images/cotdk-manual-p4.webp) 
+_The finished story spread at the opening of what would become the Manual for COTDK_
+
 I work with code and web stuff. .NET 8, the latest version of my programming platform of choice, had just been released, and I had been looking for a way to get my hands dirty with front-end framework Blazor WebAssembly since it took off in .NET 6. I hadn’t (yet) had any client projects which seemed like a good fit - but this kind of input interactivity seemed like it might just be perfect.
 
 So I set myself a challenge: I’ll learn Blazor in the evenings by making a small prototype of this idea, basically just some jazzy forms and a few riddles with a bit of interactivity sprinkled in, all styled up to look a bit like an old DOS game. My wife suggested I’d be more likely to follow through if I set a deadline to ship it off to a few friends in time to be a little puzzly Christmas gift for them. A simple, neatly contained project to fill a few of those December evenings.
@@ -35,6 +39,31 @@ By the end of the journey, I’m sat on the floor of my work shed two days befor
 It was exhausting, it was fun, and it worked. I learned a lot about Blazor, and got to revisit some ideas from previous real life escape room and interactive experiences I’ve made in a whole new context.
 
 It’s over a year on and I’ve come to love Blazor development since - so I thought it’d be fun to revisit the project and share a bit about how it works and how I made it for anyone who’s curious.
+
+```csharp
+if(_gameState.CurrentMode?.Id == GameModes.EthicsTest && _gameState.CurrentStage?.Id == 3)
+{
+    if (!_gameState.EthicsLoopBroken)
+    {
+        _gameState.EthicsLoopCount++;
+        if(_gameState.EthicsLoopCount > 2)
+        {
+            _gameState.UserMayExit = true;
+            ErrorConfig error = new("736f756c#LOOP#ConsultManual", "yellow bg-dark bg-opacity-75 ", "type 'quit' to end game");
+            errorMessage.Show(error);
+        }
+        // Return right back to Stage 3.
+        stageId = 3;
+    }
+    else
+    {
+        // otherwise, move directly to Soul Selling
+        modeId = GameModes.SoulSelling;
+        stageId = 1;
+    }
+
+}
+```
 
 This series is an attempt to give an idea of everything that went into it. If you're interested in Blazor development, game design or experiential narratives - or if you're a sucker for punishment who thinks trying to do all three on your own is a good idea, like me - there might be something in here for you. I find it really difficult to completely separate the experience design stuff from the technical implementation stuff but I’ll do my best to make it possible to skip over the bits that aren’t that interesting for you.
 

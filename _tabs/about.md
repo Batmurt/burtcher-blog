@@ -14,6 +14,6 @@ I'm also the Creative Director at BurtcherWay Ltd., specialising in delivering s
 
 I've learned over almost two decades of working creatively with software that there isn't so much difference between those two roles as you might think. Like everyone else, I love to learn and explore, and I try not to pigeonhole myself or the paths I take too much.
 
-![Desktop View](https://strgdsysburtcher.blob.core.windows.net/burtchernet/images/Mat_OnSet.jpg){: width="700" height="400" }
+![Desktop View](https://strgdsysburtcher.blob.core.windows.net/burtchernet/images/Mat_OnSet.jpg)
 
 I love reading, playing games and being with my family, ideally by the sea here in West Sussex, with our dog Billie Joel.
