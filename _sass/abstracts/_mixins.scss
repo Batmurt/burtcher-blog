@@ -65,6 +65,13 @@
   }
 }
 
+@mixin prompt-emphasis {
+  &.prompt-emphasis {
+    background-color: var(--prompt-emphasis-bg);
+    /* No icon, just shaded background */
+  }
+}
+
 @mixin slide($append: null) {
   $basic: transform 0.4s ease;
 

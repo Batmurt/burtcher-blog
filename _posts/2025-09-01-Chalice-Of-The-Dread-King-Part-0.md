@@ -10,6 +10,8 @@ image: https://strgdsysburtcher.blob.core.windows.net/burtchernet/images/cotdk-m
 > In the run up to Christmas 2023, I made a narrative-driven puzzle game, inspired by DOS text adventures, in Blazor WebAssembly. To progress through the experience, players were required to consult a physical photocopied document purporting to be the manual for The Chalice of the Dread King III by Black Lizard Software, which arrived at their home unannounced via post.
 
 > This series of blog posts explores how I went about planning and implementing both the digital and physical sides of the game in just under a month. It's not a tutorial (and almost certainly doesn't represent how you're supposed to use Blazor) but I've tried to demonstrate the stuff I learned with code snippets and explanations where I can.
+{: .prompt-emphasis }
+
 
 > **Player, look out:** there are spoilers throughout. I've now made a version of the game free for readers of this blog, and if you have curiosity about the project I suggest you play it first. It might take you about 40 minutes to a couple of hours - or several weeks. Give it a go before reading on.
 {: .prompt-warning }

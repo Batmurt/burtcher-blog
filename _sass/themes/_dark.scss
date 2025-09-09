@@ -14,8 +14,8 @@
   --label-color: #a7a7a7;
   --blockquote-border-color: rgb(66, 66, 66);
   --blockquote-text-color: #868686;
-  --link-color: rgb(138, 180, 248);
-  --link-underline-color: rgb(82, 108, 150);
+  --link-color: rgb(218, 0, 145);
+  --link-underline-color: rgb(168, 0, 112);
   --button-bg: #1e1e1e;
   --btn-border-color: #2e2f31;
   --btn-backtotop-color: var(--text-color);
@@ -56,7 +56,7 @@
   --btn-paginator-hover-color: #2e2e2e;
 
   /* Posts */
-  --toc-highlight: rgb(116, 178, 243);
+  --toc-highlight: rgb(218, 0, 145);
   --toc-popup-border-color: #373737;
   --tag-hover: rgb(43, 56, 62);
   --tb-odd-bg: #252526; /* odd rows of the posts' table */
@@ -81,6 +81,7 @@
   --prompt-warning-icon-color: rgb(255, 165, 0, 0.8);
   --prompt-danger-bg: rgb(86, 28, 8, 0.8);
   --prompt-danger-icon-color: #cd0202;
+  --prompt-emphasis-bg: #292929;
 
   /* Tags */
   --tag-border: rgb(59, 79, 88);
