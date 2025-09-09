@@ -147,7 +147,7 @@ pwa:
 paginate: 10
 
 # The base URL of your site
-baseurl: "/burtcher-blog"
+baseurl: "https://burtcher.net"
 
 # ------------ The following options are not recommended to be modified ------------------
 
