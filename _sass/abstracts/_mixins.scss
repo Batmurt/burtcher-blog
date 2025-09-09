@@ -18,7 +18,17 @@
   padding-top: $val;
   padding-bottom: $val;
 }
-
+@mixin syntax-caption(
+  $top-margin: -1rem,
+  $font-size: 0.95rem,
+  $color: var(--syntax-caption-color)
+) {
+  margin-top: $top-margin;
+  font-size: $font-size;
+  color: $color;
+  text-align: center;
+  display: block;
+}
 @mixin pl-pr($val, $important: false) {
   @if $important {
     padding-left: $val !important;

@@ -35,6 +35,11 @@
   }
 }
 
+// Syntax caption for code blocks
+.syntax-caption {
+  @include mx.syntax-caption;
+}
+
 a {
   @extend %link-color;
 
