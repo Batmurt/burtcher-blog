@@ -93,6 +93,29 @@ blockquote {
   @include mx.prompt('warning', '\f06a');
   @include mx.prompt('danger', '\f071');
   @include mx.prompt('emphasis', '\e51e');
+  @include mx.prompt('thought', '\f5dc');
+}
+
+// Box for longer sections
+.box {
+  padding: 1rem 0.4rem;
+
+  &.thought > h3:first-of-type::before {
+    content: '\f5dc';
+    font: var(--fa-font-solid);
+    color: var(--prompt-thought-icon-color);
+    padding-right: 0.5rem;
+  }
+}
+.box > h3 {
+  margin-top: 0;
+}
+.box > p:last-child {
+  margin-bottom: 0;
+}
+
+.thought {
+  background-color: var(--prompt-thought-bg);
 }
 
 kbd {
