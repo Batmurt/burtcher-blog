@@ -1,7 +1,7 @@
 ---
 title: Scraping A Website With Python - A Short Guide to a Short Script
-date: 2025-09-20 21:16
-categories: [Development,Scripts]
+date: 2025-09-10 21:16
+categories: [Development,Python Scripts]
 tags: [scripts, programming, scraping, html, development, python, json, web, data, asp.net core, .net]
 image: https://strgdsysburtcher.blob.core.windows.net/burtchernet/images/ffvii-shinra.webp
 ---
@@ -146,15 +146,16 @@ public class NewsPageDto
   public DateTime Date { get; set; }
   public string Title { get; set; } 
   public string Slug { get; set; } 
-  public string ImageThumbnailUrl { get; set; } 
-  public string ImageMainUrl { get; set; } 
-  public List<ContentBlockDto> Content { get; set; } = [];
+  public string ImageThumbnail { get; set; } 
+  public string ImageMain { get; set; } 
+  public string Body { get; set; }
+  public List<ContentBlockDto> AdditionalContent { get; set; } = [];
 }
 ```
 _There are a few properties I'm not including here because they're not relevant to the scrape, but you can imagine: Id, a Visibility bool, domain specific things etc._
 {: .syntax-caption }
 
-The `List<ContentBlockDto>` type of the Content property, if you're not familiar with C#, is just declaring a collection[^1] of unspecified length of `ContentBlockDto` objects. The `= []` syntax intialises the object with an empty collection to avoid null checking. 
+The `List<ContentBlockDto>` type of the AdditionalContent property, if you're not familiar with C#, is just declaring a collection[^1] of unspecified length of `ContentBlockDto` objects. The `= []` syntax intialises the object with an empty collection to avoid null checking. 
 
 The (simplified) ContentBlockDto looks like this: 
 ```csharp
@@ -423,9 +424,12 @@ Opening up news.json shows something like the below, which is super digestible f
 ## Wrapping Up
 This turned into a fairly long winded way to describe something very simple - but it's only simple because great libraries like **request** and **BeautifulSoup** do all the hard work. It took much longer to write out the blog post than it did the script, but hopefully it's a worthwhile breakdown for anyone new to python scripting and/or web scraping (as I was). I'll certainly consider going in the front to get necessary data much more readily now that I know how simple it is.
 
-Thanks for reading. Check back soon for the other half of this, where I'll demonstrate transforming the data and importing it to its final destination, also using a Python script, via the ASP.NET Core Web API.
+Thanks for reading. Shout me on the social links if you have to urge to correct one of my many errors.
+
+**Update:** If you lke, you can now [jump straight to the follow up article]({% post_url 2025-09-15-Pushing-Content-With-Python %}), where I demonstrate transforming the data and importing it to its final destination, also using a Python script, via the ASP.NET Core Web API.
 
 
+### Footnotes
 
 [^1]: There are several collection types in C#, of which `List` is just one. Feel free to [go into the weeds](https://learn.microsoft.com/en-us/dotnet/standard/collections/commonly-used-collection-types) on the various types and when they're most useful. If you are like me, you will spend the rest of your life second guessing your choices.
 
