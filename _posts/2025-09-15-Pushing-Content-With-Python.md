@@ -108,7 +108,7 @@ I used **json**, **requests** & **BeautifulSoup** in the [previous exercise]({% 
 
 We didn't use **os** and **io** previously: these are Python modules designed to interact with the operating system the script is running on (os) and handle file streaming, or reading and writing to files (io) respectively. The former I only use with `dotenv`, and the latter I use for creating new image files.
 
-**dotenv** is a [great library](https://pypi.org/project/python-dotenv/) for treating a secrets file like an environment variables store. In ASP.NET Core, I work a lot with configuration files (like appsettings.json) and environment variables (paricularly in the Azure App Service / Containers) which lets me pull in secrets at runtime without commiting them to the repository. dotenv lets me do something similar here, which prevents me from directly pasting in sensitive things like my Azure Storage Connection String.
+**dotenv** is a [great library](https://pypi.org/project/python-dotenv/){:target="_blank"} for treating a secrets file like an environment variables store. In ASP.NET Core, I work a lot with configuration files (like appsettings.json) and environment variables (paricularly in the Azure App Service / Containers) which lets me pull in secrets at runtime without commiting them to the repository. dotenv lets me do something similar here, which prevents me from directly pasting in sensitive things like my Azure Storage Connection String.
 To use it, I create a file called `.env` and populate it as follows:
 ```
 # Development settings
@@ -118,7 +118,7 @@ AZURE_BLOB_BASE_URL=xyz
 ```
 Then dotenv, via the `load_dotenv()` function, lets me access these values by using the key like an environment variable (see the [Constants](#constants) section below for how to use them).
 
-**PIL** comes from [Pillow](https://pillow.readthedocs.io/en/stable/), a fork of the now-defunct **P**ython **I**maging **L**ibrary. It does loads of stuff, and crucially for us it can resize and compress images, as well as save them to different formats.
+**PIL** comes from [Pillow](https://pillow.readthedocs.io/en/stable/){:target="_blank"}, a fork of the now-defunct **P**ython **I**maging **L**ibrary. It does loads of stuff, and crucially for us it can resize and compress images, as well as save them to different formats.
 
 **azure.storage.blob** is the Azure Blob Storage SDK in python form. It's near identical to the .NET version (hooray!) so hyper simple to use. We'll use this to upload our images once they've been reformatted.
 

@@ -8,7 +8,7 @@ image: https://strgdsysburtcher.blob.core.windows.net/burtchernet/images/ffvii-s
 
 ## I Need That Content
 
-Despite working in and around the web platform for many years, I've (strangely) never had cause to extract data from the front end of a website - at least not to the extent where it's been worth building a tool to do so programatically.
+Despite working in and around the web platform for many years, I've (strangely) never had cause to extract data from the front end of a website - at least not to the extent where it's been worth building a tool to do so programmatically.
 
 Recently I've been completely rebuilding a client's website, including the back end. I like the architecture wrangling and design, less so the content stuff, but the nature of the mission meant I had a lot of blog-type News posts to port. The platform (a proprietary CMS) it currently sits on doesn't have a export function which can pull out all their historic content in a useful way - nor does it offer direct db access. 
 
@@ -30,7 +30,7 @@ The script needed to:
 - Get me all the existing news urls, according to a pattern
 - Grab the content html & images from each page, ignoring the template scaffolding
 - Tidy up any oddities
-- Get the data into a structured format ready to be programatically submitted to my API
+- Get the data into a structured format ready to be programmatically submitted to my API
 
 Actually the last step *could* have been "submit directly to the API" but a) I wanted to preserve an archive and b) it's never a bad idea to have the ability to make a few find/replace changes manually. These kind of scripts so often give you 98% of what you want and re-running the whole thing just to encompass an edge case I missed isn't part of the game. This is supposed to be a break from the unit testing and future proofing of my production codebases, after all.
 
@@ -45,9 +45,9 @@ from bs4 import BeautifulSoup
 import json
 import re
 ```
-**Requests** is perfect for this: make http requests, get responses. If you're new to this, think "this is the computer visiting the url for me, and returning all the data". [Super easy to use](https://pypi.org/project/requests/).
+**Requests** is perfect for this: make http requests, get responses. If you're new to this, think "this is the computer visiting the url for me, and returning all the data". [Super easy to use](https://pypi.org/project/requests/){:target="_blank"}.
 
-**BeautifulSoup** is the real magic of the script. This [fab library](https://pypi.org/project/beautifulsoup4/) helps you traverse the DOM programatically, or in human speak, it can look at all the HTML data returned in the request (**D**ocument **O**bject **M**odel) in a highly sophisticated way, identifing and manipulating different elements as the program instructs. Read on to see some good examples.
+**BeautifulSoup** is the real magic of the script. This [fab library](https://pypi.org/project/beautifulsoup4/){:target="_blank"} helps you traverse the DOM programatically, or in human speak, it can look at all the HTML data returned in the request (**D**ocument **O**bject **M**odel) in a highly sophisticated way, identifying and manipulating different elements as the program instructs. Read on to see some good examples.
 
 **json** is the python module for encoding and decoding json (for my structured data output)
 
@@ -87,7 +87,7 @@ Very simply, we:
 - Add any discovered urls to the collection of `all_news_urls` and return it to the calling function.
 
 ### discover_news_urls
-This is where I get to use the fun libraries. The goal is to find any specific news pages by looking for occurences of the (slightly unusual) pattern "https://burtcher.net/{slug}/news" in the text of each archive page.
+This is where I get to use the fun libraries. The goal is to find any specific news pages by looking for occurrences of the (slightly unusual) pattern "https://burtcher.net/{slug}/news" in the text of each archive page.
 
 So assuming `url` is the archive page where we expect to find a few links to historic articles, we need to visit it:
 ```python 
@@ -109,7 +109,7 @@ NEWS_URL_PATTERN = re.compile(r"^https?://burtcher\.net/[^/]+/news/")
 ```
 Calling the `compile()` method on `re` (the regular expression library mentioned earlier) and passing in a regex string creates a pattern which we can use to search stuff.
 
-> Note: I have never found regex syntax simple or memorable and explaining it is not something you want me to try and do (even if the above is basically the simplest example you could imagine). Perhaps it was always too easy to look up, so it never went in properly - but whatever the reason, it just will not stick in my head, despite it being brilliantly useful and the existence of some [excellent resources](https://www.regular-expressions.info/quickstart.html) to make it easy to learn. There are many things to say about AI but in this one very specific instance I can say I am excited that this is no longer something I have to care very much about.
+> Note: I have never found regex syntax simple or memorable and explaining it is not something you want me to try and do (even if the above is basically the simplest example you could imagine). Perhaps it was always too easy to look up, so it never went in properly - but whatever the reason, it just will not stick in my head, despite it being brilliantly useful and the existence of some [excellent resources](https://www.regular-expressions.info/quickstart.html){:target="_blank"} to make it easy to learn. There are many things to say about AI but in this one very specific instance I can say I am excited that this is no longer something I have to care very much about.
 {: .prompt-emphasis }
 
 With the pattern established and the soup ready for sifting, lets loop through soup:
@@ -170,7 +170,7 @@ public class ContentBlockDto
 ```
 The NewsPageDto is structured with this list of ContentBlocks, rather than just one big string prop for any html content, so that the content creators have some guided flexibility in what they're making: through the CMS, they can add any number of content blocks with text & images formatted to certain predetermined specs to keep things looking consistent in the template.
 
-So, what we **don't** want is just to grab a big bunch of HTML and shove it up to our API as-is. The new website is exactly that: new. It's got a new set of css styles to match these new data structures. Not only that, but because of the idiosyncracies of the existing CMS and the nature of user-input, there's a lot of funky stuff in there that we don't really want: empty paragraphs containing `&nbsp` (unbreakable space) characters, for example, which have been used to fudge the styling which we're hoping to improve in the next iteration. 
+So, what we **don't** want is just to grab a big bunch of HTML and shove it up to our API as-is. The new website is exactly that: new. It's got a new set of css styles to match these new data structures. Not only that, but because of the idiosyncrasies of the existing CMS and the nature of user-input, there's a lot of funky stuff in there that we don't really want: empty paragraphs containing `&nbsp` (unbreakable space) characters, for example, which have been used to fudge the styling which we're hoping to improve in the next iteration. 
 
 Our goal then is to extract the *actual* content as cleanly as possible, gleaning intent without necessarily copying the HTML structure.
 
@@ -431,7 +431,7 @@ Thanks for reading. Shout me on the social links if you have to urge to correct 
 
 ### Footnotes
 
-[^1]: There are several collection types in C#, of which `List` is just one. Feel free to [go into the weeds](https://learn.microsoft.com/en-us/dotnet/standard/collections/commonly-used-collection-types) on the various types and when they're most useful. If you are like me, you will spend the rest of your life second guessing your choices.
+[^1]: There are several collection types in C#, of which `List` is just one. Feel free to [go into the weeds](https://learn.microsoft.com/en-us/dotnet/standard/collections/commonly-used-collection-types){:target="_blank"} on the various types and when they're most useful. If you are like me, you will spend the rest of your life second guessing your choices.
 
 
 [^2]: "If you knew each contentBlock was a `<section class="contentBlock">`, couldn't you just have .select()-ed them all directly from the `item` node?" Yes, careful reader, I could have! If I'd looked ahead before starting writing the script I would've noticed it myself. Two lessons: 1) always plan before you start writing code 2) don't get hung up on small stuff that doesn't matter - I don't mind sharing imperfect code; it's quite liberating.

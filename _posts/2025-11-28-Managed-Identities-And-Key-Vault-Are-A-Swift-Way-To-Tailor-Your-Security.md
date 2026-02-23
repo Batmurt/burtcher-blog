@@ -24,11 +24,11 @@ This is your opportunity to unload your vast knowledge about Managed Identities 
 
 ### What Is Key Vault?
 
-Key Vault is a secure, cloud storage resource for managed secrets, keys and certificates encrypted using software libraries validated to FIPS 140 Level 1. You can read lots about it in the [official documentation](https://learn.microsoft.com/en-us/azure/key-vault/general/overview) but at heart it's easy to grasp as a kind of advanced password manager, keeping select data private except to carefully defined users.
+Key Vault is a secure, cloud storage resource for managed secrets, keys and certificates encrypted using software libraries validated to FIPS 140 Level 1. You can read lots about it in the [official documentation](https://learn.microsoft.com/en-us/azure/key-vault/general/overview){:target="_blank"} but at heart it's easy to grasp as a kind of advanced password manager, keeping select data private except to carefully defined users.
 
 ### What Are Managed Identities?
 
-It's tempting to go into too much detail on [Managed Identities](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview) so let's stay aggressively simple: think of a Managed Identity as a permissions container which can be assigned to workloads and resources (not just humans) in Azure. 
+It's tempting to go into too much detail on [Managed Identities](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview){:target="_blank"} so let's stay aggressively simple: think of a Managed Identity as a permissions container which can be assigned to workloads and resources (not just humans) in Azure. 
 
 In real life, because you follow the principle of least privilege, you give your hapless but well-meaning designer colleague Gavin RBAC roles for exactly what he needs to do. He was someone who until recent events you shared your secrets with. He can *read* the blobs in your blob storage account, which he needs to download the latest company logo vectors to incorporate into his patterned wallpaper designs, but he can't *write* or *delete* blobs, and he certainly can't make container deployments and stuff like that. 
 
@@ -89,7 +89,7 @@ Use the Generate / Import button to create a new secret. You've got some great o
 ```bash
 az keyvault create --name cruel-summeries-secrets --resource-group resource-group --enable-rbac-authorization true
 ```
-Learn more about the [Key Vault CLI here](https://learn.microsoft.com/en-us/cli/azure/keyvault?view=azure-cli-latest).
+Learn more about the [Key Vault CLI here](https://learn.microsoft.com/en-us/cli/azure/keyvault?view=azure-cli-latest){:target="_blank"}.
 
 #### Azure PowerShell
 ```powershell
@@ -99,7 +99,7 @@ New-AzKeyVault -Name "cruel-summeries-secrets" -ResourceGroupName "resource-grou
 ### 2. Create a Managed Identity
 
 #### Portal
-![Desktop View](https://strgdsysburtcher.blob.core.windows.net/burtchernet/images/SecureAzureWithManagedIdentities-ManagedIdentities.webp)
+![Desktop View](https://strgdsysburtcher.blob.core.windows.net/burtchernet/images/SecureAzureWithManagedIdentities-ManagedIdentities.webp){:target="_blank"}
 
 
 Search for Managed Identities in the top bar, head to the interface and click "Create". As ever, choose a region and resource group and give it a name: maybe `cruel-summeries-id`.
@@ -110,7 +110,7 @@ That's it, and it's effectively instant.
 ```bash
 az identity create --name cruel-summeries-id --resource-group resource-group --location UKSouth
 ```
-Read more about the [az identity cli here](https://learn.microsoft.com/en-us/cli/azure/identity?view=azure-cli-latest).
+Read more about the [az identity cli here](https://learn.microsoft.com/en-us/cli/azure/identity?view=azure-cli-latest){:target="_blank"}.
 
 ### Azure PowerShell
 ```powershell
@@ -142,7 +142,7 @@ This command passes the exact Role Name and the specific resource name to create
 az role assignment create --assignee managed_id_object_id --role "Key Vault Secrets User" --scope "/subscriptions/swifty-subscription-id/resourcegroups/resource-group/providers/Microsoft.KeyVault/vaults/cruel-summeries-secrets"
 ```
 
-Read more about [az role assignment](https://learn.microsoft.com/en-us/cli/azure/role/assignment?view=azure-cli-latest).
+Read more about [az role assignment](https://learn.microsoft.com/en-us/cli/azure/role/assignment?view=azure-cli-latest){:target="_blank"}.
 
 #### Azure PowerShell
 As with the cli, we'll need the Managed Identity's Object Id, which is easy to get in PowerShell with one cmdlet:
@@ -175,7 +175,7 @@ This one's slightly different as we use the `webapp` route into the az cli. Conf
 az webapp identity assign --resource-group resource-group --name cruel-summeries-webapp --identities "/subscriptions/swifty-subscription-id/resourcegroups/resource-group/providers/Microsoft.ManagedIdentity/UserAssignedIdentities/cruel-summeries-id
 ```
 
-Read more about the [az webapp identity](https://learn.microsoft.com/en-us/cli/azure/webapp/identity?view=azure-cli-latest) command.
+Read more about the [az webapp identity](https://learn.microsoft.com/en-us/cli/azure/webapp/identity?view=azure-cli-latest){:target="_blank"} command.
 
 #### Azure Powershell
 Bombshell: [Adding a user-assigned identity in App Service by using Azure PowerShell is currently not supported.](https://learn.microsoft.com/en-us/azure/app-service/overview-managed-identity). 
@@ -215,7 +215,7 @@ This clever little guy runs down a list of possible credentials & identities in 
 - InteractiveBrowserCredential
 - BrokerCredential 
 
-As a .NET Developer /  Microsoft stack devotee / Taylor Swift fan, you probably have one or more of those credentials active at any one time, and DefaultAzureCredential will use it to get you the access you need. Read more about [Default Azure Credential here](https://learn.microsoft.com/en-us/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet).
+As a .NET Developer /  Microsoft stack devotee / Taylor Swift fan, you probably have one or more of those credentials active at any one time, and DefaultAzureCredential will use it to get you the access you need. Read more about [Default Azure Credential here](https://learn.microsoft.com/en-us/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet){:target="_blank"}.
 
 Very clever, and *totally* useable in Production - but it might be easier not to, as the `ManagedIdentityCredential` is right there for just this purpose.
 

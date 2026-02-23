@@ -7,7 +7,7 @@ tags: [programming, identity, mail, api, c#, development, web, data, asp.net cor
 
 ## Sometimes You Just Want The Emails
 
-There are currently over a billion ways to send people emails (I assume this is why we get and ignore so many). I've built pretty complex integrations using Twilio's [SendGrid](https://sendgrid.com/), Google Smtp, [Azure Communication Services](https://azure.microsoft.com/en-us/products/communication-services) and - most rewardingly, if not easily - [Microsoft Graph API](https://learn.microsoft.com/en-us/graph/use-the-api).
+There are currently over a billion ways to send people emails (I assume this is why we get and ignore so many). I've built pretty complex integrations using Twilio's [SendGrid](https://sendgrid.com/){:target="_blank"}, Google Smtp, [Azure Communication Services](https://azure.microsoft.com/en-us/products/communication-services){:target="_blank"} and - most rewardingly, if not easily - [Microsoft Graph API](https://learn.microsoft.com/en-us/graph/use-the-api){:target="_blank"}.
 
 But what if you don't need that? What if you already have a nice CRM-style web app written in ASP.NET Core (like everyone should have), with all your customers / clients / staff / fellow Nathan Fielder enthusiasts painstakingly stored in great detail, and you just want to copy and paste their names and emails into your email client of choice? It takes ten minutes to code it up and no one has to integrate any auth or mess around with proprietary APIs.
 
@@ -149,7 +149,7 @@ public async Task<IActionResult> GenerateMailingList(StaffFilterViewModel model)
 
 ### 4. Display the Response in a Modal
 
-I love the built in [bootstrap modals](https://getbootstrap.com/docs/5.3/components/modal/). I know they aren't sexy but they are super simple.
+I love the built in [bootstrap modals](https://getbootstrap.com/docs/5.3/components/modal/){:target="_blank"}. I know they aren't sexy but they are super simple.
 ```html
 <!-- Mailing List Modal -->
 <div class="modal fade" id="mailingListModal" tabindex="-1" aria-labelledby="mailingListModalLabel" aria-hidden="true">
@@ -180,7 +180,7 @@ I love the built in [bootstrap modals](https://getbootstrap.com/docs/5.3/compone
 
 I love this bit. A lot of my users aren't particularly technical. Select all & copy is not, it turns out, second nature to everyone on the planet, so a click-to-copy button can be hugely helpful for reducing friction.
 
-This method is easy because of the [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API) which I still think of as *new* but has been part of Chrome & Firefox since 2018 and Edge & Safari since 2020 so compatibility isn't too much of an issue.
+This method is easy because of the [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API){:target="_blank"} which I still think of as *new* but has been part of Chrome & Firefox since 2018 and Edge & Safari since 2020 so compatibility isn't too much of an issue.
 
 All we do is:
 1. Get the mailingListText from the element

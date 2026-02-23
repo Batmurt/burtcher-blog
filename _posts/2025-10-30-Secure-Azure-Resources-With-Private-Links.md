@@ -242,10 +242,13 @@ You should get something like the following (simplified) JSON response, which st
 ```
 
 Repeat the command with the zone name `privatelink.database.windows.net` to test it's worked for the database, too.
-### 3. Turn of Public Internet Connectivity
+
+### 3. Turn off Public Internet Connectivity
+
 Now you can safely turn off Public Access to both your Database and API apps (and then test them, naturally). Your website should happily call the API over your private network, and your API should happily interact with the database privately too.
 
 ### 4. Update Your Connection Strings & URLs with tedious private IP Addresses
+
 Just kidding. This is the step we don't need, thanks to the magic of Private Links.
 
 ## Conclusion

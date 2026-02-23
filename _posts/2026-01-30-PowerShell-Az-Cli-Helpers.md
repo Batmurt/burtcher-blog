@@ -11,7 +11,7 @@ System admins, software engineers and other tech professionals will happily bend
 
 Truth is though, fuzzies aside - it *is* quick, especially for regular or repetitive tasks, and when you combine available CLI tools with a bit of lightweight scripting, you can save yourself a lot of time. By way of an example, here's an idea for PowerShell Scripts which leverage the Az (Azure) CLI to get things done in the cloud without opening that pesky portal.
 
-> There are three main ways to use Azure command line tools: the Cloud Shell (running in the browser), `az cli` (a standalone command line tool), and [Azure PowerShell](https://learn.microsoft.com/en-us/powershell/azure/install-az-ps), a cross-platform powershell module with built-in Azure functionality. Here I use Az CLI (no special reason) - you can definitely achieve this with the powershell module too!
+> There are three main ways to use Azure command line tools: the Cloud Shell (running in the browser), `az cli` (a standalone command line tool), and [Azure PowerShell](https://learn.microsoft.com/en-us/powershell/azure/install-az-ps){:target="_blank"}, a cross-platform powershell module with built-in Azure functionality. Here I use Az CLI (no special reason) - you can definitely achieve this with the powershell module too!
 {:  .prompt-emphasis }
 
 ## Initial Opportunity
