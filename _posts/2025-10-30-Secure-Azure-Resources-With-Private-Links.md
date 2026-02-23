@@ -2,8 +2,8 @@
 title: Secure Azure Resources with Private Links
 date: 2025-10-30 13:52
 categories: [Azure, Guides]
-tags: [azure,dns,security,guide,deployment,networking,cloud]
-image: https://strgdsysburtcher.blob.core.windows.net/burtchernet/images/dnslogo.png
+tags: [azure,dns,security,guide,deployment,networking,cloud,private link]
+image: https://strgdsysburtcher.blob.core.windows.net/burtchernet/images/PrivateLink.jpg
 ---
 ## Keeping It In-House
 As there's a cloud-native / web-based focus to a lot of the projects I work on, with various API integrations across the board, it's easy to think only in 'public internet' terms: using URLs and public FQDNs linking services together over the web.
