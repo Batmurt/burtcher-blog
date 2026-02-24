@@ -82,7 +82,7 @@ Use the Generate / Import button to create a new secret. You've got some great o
 
 ![Desktop View](https://strgdsysburtcher.blob.core.windows.net/burtchernet/images/SecureAzureWithManagedIdentities-NewSecret.webp)
 
-> Don't write your secret in the Content Type field by accident. You'll feel like a dumbass. Ask me how I know!
+> Don't write your secret in the Content Type field by accident. You'll feel like a dumbass. Ask me how I know! Here I sit alone, behind walls of regret.
 {: .prompt-warning }
 
 #### az cli
