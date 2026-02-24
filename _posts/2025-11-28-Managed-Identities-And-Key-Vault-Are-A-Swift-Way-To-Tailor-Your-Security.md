@@ -7,16 +7,16 @@ image: https://strgdsysburtcher.blob.core.windows.net/burtchernet/images/SecureA
 ---
 ## I Don't Want To Keep Secrets Just To Keep You (...Protected Online)
 
-My previous post on [securing Azure Resources with Private Links]{% post_url 2025-10-30-Secure-Azure-Resources-With-Private-Links %} prompted me to think about other quick-wins when it comes to security - particularly things which leverage in-built Azure utilities. **Managed Identities** and the **Azure Key Vault** are two of those utilities which work together brilliantly, and here I'm going to focus on a very specific use case which is probably the most straightforward introduction to them: **keeping secrets in the vault and accessing them securely.**. I'm fully aware that if I showed up at your party with this kind of talk you wouldn't have me or want me but in the thrilling world of cloud engineering, these things matter.
+My previous post on [securing Azure Resources with Private Links]({% post_url 2025-10-30-Secure-Azure-Resources-With-Private-Links %}) prompted me to think about other quick-wins when it comes to security - particularly things which leverage in-built Azure utilities. **Managed Identities** and the **Azure Key Vault** are two of those utilities which work together brilliantly. I'm going to focus on a specific use case which is probably the most straightforward introduction to them: **keeping secrets in the vault and accessing them securely.**. 
 
-> In my opinon, there is a hideous amount of opaque word-salad written about Managed Identities, Service Principals and so on that can make it incredibly hard to get going with this stuff.  In practice, a bit of know how gets you a long way. I've tried to distill this to the essence (as a useful reminder for me, if nothing else).
+> In my opinon, there is a hideous amount of opaque and torturous prose written about Managed Identities, Service Principals and so on - everything to do with auth, really - which can make it incredibly hard to get going with this stuff. I've tried to keep this to some of the essential principles (as a useful reminder for me, if nothing else).
 {:  .prompt-emphasis }
 
 ## Opportunity: You Have Secrets
 
-You don't want your secrets to end up splashed on the news front page. *Everyone* knows you mustn't commit secrets (api keys, client ids, connection strings etc) to your repo, and therefore *nobody* does it. *You* definitely keep *your* secrets in environment variables and/or configuration files, carefully keeping those for local development tucked securely on your workstation and those for production delicately ensconced in the Environment Variables section of your Azure Web App. Lovely. Really good practice. Well done.
+You don't want your secrets to end up splashed on the news front page. *Everyone* knows you mustn't commit 'secrets' (api keys, client ids, connection strings etc) to your repo, and therefore *nobody* does it. *You* definitely keep *your* secrets in environment variables and/or configuration files, carefully keeping those used for local development tucked securely on your workstation, and those for production delicately ensconced in the Environment Variables section of your Azure Web App. Lovely. Really good practice. Well done.
 
-But let's say you have something *even more sensitive* than usual, or better that your client says: I want to increase security in all layers, across the board. Tell me about some best practices you've introduced to handling secrets in our application architecture. Is there something better you can be doing with those secrets? 
+But let's say you have something *even more sensitive* than usual, or better, that your client says: I want to increase security in all layers, across the board. Tell me about some best practices you've recently introduced to handling secrets in our application. Can you make it easier to control access to connection strings, and harder to leak api keys by accident? 
 
 Yep!
 
@@ -112,7 +112,7 @@ az identity create --name cruel-summeries-id --resource-group resource-group --l
 ```
 Read more about the [az identity cli here](https://learn.microsoft.com/en-us/cli/azure/identity?view=azure-cli-latest){:target="_blank"}.
 
-### Azure PowerShell
+#### Azure PowerShell
 ```powershell
 New-AzUserAssignedIdentity -ResourceGroupName "resource-group" -Name "cruel-summeries-id"
 ```
@@ -123,7 +123,7 @@ Key Vault has some very particular permissions which make an important distincti
 
 For this kind of managed identity use, you only need to assign the ability to **read** secrets - nothing else. 
 
-### Portal
+#### Portal
 
 Go to the Key Vault Resource's Access Control (IAM) panel, and click "Add Role Assignment".
 
